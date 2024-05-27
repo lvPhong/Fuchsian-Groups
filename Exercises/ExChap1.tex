@@ -1,0 +1,44 @@
+\section{Bài tập chương 1}
+\begin{ex}
+    Cho $L$ là một đường tròn Euclid hoặc một đường thẳng vuông góc với trục thực sao cho $L$ giao với trục thực tại một điểm hữu hạn $\alpha$ nào đó. Chứng minh phép biến đổi $T(z)=-(z-\alpha)^{-1}+\beta \in \PSL(2,\R)$, và với $\beta$ phù hợp thì $L$ được biến thành trục ảo.
+\end{ex}
+\begin{sol*}
+Ta có $T$ là hợp thành của hai phép biến đổi phân tuyến tính trong $\PSL(2,\R)$ là $f(z) = \dfrac{0z-1}{z-\alpha} = \dfrac{-1}{z-\alpha},~g(z) = \dfrac{z+\beta}{0z+1}=z+\beta$ \big(nói rõ hơn $z\xlongrightarrow[]{f}\dfrac{-1}{z-\alpha}\xlongrightarrow[]{g}\dfrac{-1}{z-\alpha} + \beta$\big). Vì $\PSL(2,\R)$ là một nhóm với phép toán là phép hợp thành ánh xạ nên với $f,g\in \PSL(2,\R)$ thì $T = g\circ f \in \PSL(2,\R)$.
+\begin{itemize}
+    \item Nếu $L$ là đường thẳng Euclid vuông góc với trục thực thì 
+    \[L = \{z\in \C~|~\re(z) = \alpha\} = \{\alpha + iy ~|~y \in \R\}.\] 
+    Với $y\neq 0,~T(\alpha + iy) = \dfrac{-1}{(\alpha + iy)-\alpha} + \beta = i\dfrac{1}{y} + \beta$, còn khi $y=0$ thì $T(\alpha) \to \infty$. Do đó để $T(\alpha + iy)$ thuộc trục ảo thì $\beta = 0$ (do $\beta \in \R$).
+    \item Nếu $L$ là đường tròn Euclid vuông góc với trục thực thì nó còn giao với trục thực tại điểm $\gamma$ nào đó khác $\alpha$. Hơn nữa, tâm của $L$ là trung điểm $c = \dfrac{\alpha + \gamma}{2}$ của đoạn thẳng nối $\alpha$ và $\gamma$ trên trục thực, bán kính của $L$ là $r = |\alpha - c| = \bigg|\dfrac{\alpha-\gamma}{2}\bigg|$. Nghĩa là \[L = \{z\in \C~|~|z-c| = r\} = \big\{c+re^{i\theta}~|~\theta \in [0, 2\pi]\big\}.\]
+    Suy ra $\forall \theta \in [0,2\pi]$ thì 
+    \begin{align*}
+        T(c+re^{i\theta}) &= -\dfrac{1}{(c+re^{i\theta})-\alpha} + \beta\\
+        & = -\dfrac{1}{(c-\alpha+r\cos{\theta}) + ir\sin{\theta}} + \beta\\
+        & = -\dfrac{((c-\alpha+r\cos{\theta}) - ir\sin{\theta})}{(c-\alpha+r\cos{\theta})^2 + (r\sin{\theta})^2} + \beta\\
+        &= \left(\beta - \dfrac{c-\alpha+r\cos{\theta}}{(c-\alpha+r\cos{\theta})^2 + (r\sin{\theta})^2}\right) + i\dfrac{r\sin{\theta}}{(c-\alpha+r\cos{\theta})^2 + (r\sin{\theta})^2}
+    \end{align*}
+    Do đó để $T(c+re^{i\theta})$ thuộc trục ảo thì $\beta - \dfrac{c-\alpha+r\cos{\theta}}{(c-\alpha+r\cos{\theta})^2 + (r\sin{\theta})^2} = 0~\forall \theta \in [0,2\pi]$. Nghĩa là 
+    \begin{align*}
+        \beta & = \dfrac{c-\alpha+r\cos{\theta}}{(c-\alpha+r\cos{\theta})^2 + (r\sin{\theta})^2}\\
+        &= \dfrac{c-\alpha+r\cos{\theta}}{(c-\alpha)^2+2r(c-\alpha)\cos{\theta} + r^2}\\
+        &= \dfrac{c-\alpha+r\cos{\theta}}{2(c-\alpha)^2+2r(c-\alpha)\cos{\theta}}~(\text{do } r^2 = |\alpha-c|^2 = (\alpha-c)^2)\\
+        &= \dfrac{1}{2(c-\alpha)} = \dfrac{1}{\gamma -\alpha}~\left(\text{do }c =\dfrac{\alpha + \gamma}{2} \right).
+    \end{align*}
+\end{itemize}
+\end{sol*}
+\begin{ex}
+    Chứng minh với $z \in \hh$ và $f(z) = \dfrac{zi+1}{z+i}$ thì $\dfrac{2|f'(z)|}{1-|f(z)|^2}=\dfrac{1}{\im(z)}\cdot$
+\end{ex}
+\begin{sol*}
+Ta có $f'(z) = \dfrac{-2}{(z+i)^2}$ nên 
+\[|f'(z)| = \left|\dfrac{-2}{(z+i)^2}\right| = \dfrac{2}{|z+i|^2} = \dfrac{2}{(z+i)(\overline{z}-i)}=\dfrac{2}{z\overline{z}+i(z-\overline{z})+1}=\dfrac{2}{|z|^2+2\im(z)+1}\cdot\] Kết hợp 
+\[
+    \left|f(z)\right|^2 = \left|\dfrac{zi+1}{z+i}\right|^2 
+    = \left|\dfrac{z-i}{z+i}\right|^2 
+    = \left(\dfrac{z-i}{z+i}\right)\left(\dfrac{\overline{z}+i}{\overline{z}-i}\right)
+    =\dfrac{z\overline{z}+i(z-\overline{z})+1}{z\overline{z}+i(z-\overline{z})+1} = \dfrac{|z|^2-2\im(z)+1}{|z|^2+2\im(z)+1}\cdot
+\]
+Ta được 
+\[
+    \dfrac{2|f'(z)|}{1-|f(z)|^2} = \dfrac{\dfrac{4}{|z|^2+2\im(z)+1}}{\dfrac{4\im(z)}{|z|^2+2\im(z)+1}}=\dfrac{1}{\im(z)}\cdot
+\]
+\end{sol*}
